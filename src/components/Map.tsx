@@ -2,8 +2,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useRef, useState} from 'react';
 import MapView, {Polyline} from 'react-native-maps';
+import SplashScreen from 'react-native-splash-screen';
 import {useLocation} from '../hooks/useLocation';
-import {LoadingScreen} from '../pages/LoadingScreen';
+import {LoadingScreen} from '../screens/LoadingScreen';
 import {Fab} from './Fab';
 
 export const Map = () => {
@@ -27,6 +28,10 @@ export const Map = () => {
     return () => {
       stopFollowUserLocation();
     };
+  }, []);
+
+  useEffect(() => {
+    SplashScreen.hide();
   }, []);
 
   useEffect(() => {
